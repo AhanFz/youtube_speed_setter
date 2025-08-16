@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 280px;
+      padding: 16px;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .logo {
+      width: 24px;
+      height: 24px;
+      background: #ff0000;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    h3 {
+      margin: 0;
+      color: #1a1a1a;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .speed-container {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .label {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #333;
+      background: white;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    select:hover {
+      border-color: #c0c0c0;
+    }
+
+    select:focus {
+      border-color: #4285f4;
+      box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.1);
+    }
+
+    #status {
+      font-size: 13px;
+      color: #4CAF50;
+      text-align: center;
+      min-height: 20px;
+      margin-top: 8px;
+    }
+
+    .footer {
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #eee;
+    }
+
+    .current-video {
+      font-size: 13px;
+      color: #666;
+      margin-top: 12px;
+      padding: 8px;
+      background: #f1f3f4;
+      border-radius: 6px;
+      display: none;
+    }
+
+    .current-video.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">▶</div>
+      <h3>YouTube Speed Controller</h3>
+    </div>
+
+    <div class="speed-container">
+      <label class="label">Playback Speed</label>
+      <select id="speedSelect">
+        <option value="0.25">0.25x (Quarter Speed)</option>
+        <option value="0.5">0.5x (Half Speed)</option>
+        <option value="0.75">0.75x (Slow)</option>
+        <option value="1">1x (Normal)</option>
+        <option value="1.25">1.25x (Slightly Fast)</option>
+        <option value="1.5">1.5x (Fast)</option>
+        <option value="1.75">1.75x (Faster)</option>
+        <option value="2">2x (Double Speed)</option>
+      </select>
+      <div id="status"></div>
+    </div>
+
+    <div class="current-video" id="currentVideo">
+      Currently playing: <span id="videoTitle">No video detected</span>
+    </div>
+
+    <div class="footer">
+      Speed will be applied automatically to all videos
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
